@@ -1,0 +1,6 @@
+site_name: PPP Coding Standards
+nav:
+  - About: index.md
+  - Fields/Variables: fields-variables.md
+  - Properties: properties.md
+theme: readthedocs
