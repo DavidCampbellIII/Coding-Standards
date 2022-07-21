@@ -7,5 +7,6 @@ nav:
   - Naming Conventions: naming.md
   - Namespaces: namespaces.md
   - Optimization Techniques: optimization-techniques.md
+  - Code File Structure: code-file-structure.md
   - Other: other.md
 theme: readthedocs
