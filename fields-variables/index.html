@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Fields/Variables - PPP Coding Standards</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Fields/Variables";
+        var mkdocs_page_input_path = "fields-variables.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PPP Coding Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Fields/Variables</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#accessor-types">Accessor Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-types">Data Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#naming">Naming</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tooltips">Tooltips</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#warning-suppression">Warning Suppression</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../properties/">Properties</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../methods/">Methods</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../naming/">Naming Conventions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../namespaces/">Namespaces</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../optimization-techniques/">Optimization Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code-file-structure/">Code File Structure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../other/">Other</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PPP Coding Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Fields/Variables</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<p style="text-align: right">
+  Last updated <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2022</span>
+</p>
+<hr />
+
+                <h1 id="fieldsvariables">Fields/Variables</h1>
+<h2 id="accessor-types">Accessor Types</h2>
+<p>All fields should remain as <code>private</code> as possible.  If inheritance is involved, fields should gravitate towards having <code>protected</code> access as opposed to <code>public</code> access.</p>
+<p><code>default</code> accessor type (ie no specified type) should never be used. When no type is specified, the accessor type assumes <code>internal</code>  (which is slightly different from <code>public</code>) for classes, and <code>private</code> for class members,   Might as well specify <code>private</code> to be more readable and explicit.</p>
+<p>If a field must be exposed in the Inspector for easy editing access, it should be serialized.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int myIntField = 10;
+</code></pre>
+<p>This will keep the variable <code>private</code> to the rest of the codebase, but expose it to the Inspector.</p>
+<p>If a field should be read-only, it should be made into a property.<br/>
+If a field should be read-only, with the exception of the Inspector, it should be made into a property.<br/>
+To see how to achieve either of these, see <a href="../properties/">properties</a></p>
+<h2 id="data-types">Data Types</h2>
+<p>All fields (and any other variable for that matter) should be explicit when declaring a data type.  No local variable should use <code>var</code> for its data type.</p>
+<p><code>double</code>s are not used in much of Unity’s API, so <code>float</code>s should be used in all cases instead.</p>
+<h2 id="naming">Naming</h2>
+<p>Fields/variables should be named in camelCase.</p>
+<h2 id="tooltips">Tooltips</h2>
+<p>In order to create the easiest to use API from the code to the front end development and designing of the game, add tooltip attributes to make viewing the purpose of the field from the Inspector as easy and seamless as possible.</p>
+<p>All exposed fields should have a tooltip, unless they are extremely self-explanatory.  When in doubt, it never hurts to be specific about the purpose of the field!</p>
+<p>For the best readability, tooltip attributes should always be placed last in the attribute list, and on their own separate line.  They should be indented as to provide a visual break between the other attributes.</p>
+<pre><code class="language-csharp">[SerializeField,
+     Tooltip(&quot;Current health of the player&quot;)]
+private float currentHealth = 100f;
+</code></pre>
+<h2 id="warning-suppression">Warning Suppression</h2>
+<p>Warnings can certainly be useful, but sometimes they are annoying, as they don’t always interface well with Unity’s workflow.  Specific, warning 0649 about how a variable is declared but never initialized can be frustrating, as a lot of variables are declared in code, and then assigned a value through Unity’s Inspector.  Suppressing these warnings is easy to do, and keeps the console clean.  </p>
+<p>Simply add <code>#pragma warning disable &lt;WARNING_CODE&gt;</code> to the start of where the warning should be suppressed.</p>
+<p>Be sure to restore the error after all variables intended to suppress to avoid suppressing the warning throughout the entire file.  This can be done by simply writing <code>#pragma warning restore &lt;WARNING_CODE&gt;</code>.</p>
+<pre><code class="language-csharp">#pragma warning disable 0649
+[SerializeField]
+private int num; //to be assigned in Inspector
+[SerializeField]
+private GameObject someObject; //to be assigned in Inspector
+#pragma warning restore 0649 
+//be sure to restore the error after all intending variables so it is not accidentally 
+//  suppressed throughout the entirety of the file
+</code></pre>
+               
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../properties/" class="btn btn-neutral float-right" title="Properties">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2020 - 2022 Pie On A Plate Productions LLC</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../properties/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

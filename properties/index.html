@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Properties - PPP Coding Standards</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Properties";
+        var mkdocs_page_input_path = "properties.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PPP Coding Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fields-variables/">Fields/Variables</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Properties</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#accessor-types">Accessor Types</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getset">get/set</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#naming">Naming</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#camelcase">camelCase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#camelcase-example-1">camelCase Example 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#camelcase-example-2">camelCase Example 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#camelcase-example-3">camelCase Example 3</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pascalcase">PascalCase</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pascalcase-example-1">PascalCase Example 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pascalcase-example-2">PascalCase Example 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pascalcase-example-3">PascalCase Example 3</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../methods/">Methods</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../naming/">Naming Conventions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../namespaces/">Namespaces</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../optimization-techniques/">Optimization Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code-file-structure/">Code File Structure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../other/">Other</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PPP Coding Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Properties</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<p style="text-align: right">
+  Last updated <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2022</span>
+</p>
+<hr />
+
+                <h1 id="properties">Properties</h1>
+<h2 id="accessor-types">Accessor Types</h2>
+<p>All properties should remain as <code>private</code> as possible.  However, there are a few different common scenarios where properties might need to be <code>public</code>.  Please follow the standards listed below according to each specific situation.<br />
+Note that not all possible situations are shown below, however one should be able to extrapolate how they should handle a unique scenario based on the examples given below.</p>
+<hr />
+<p>Property that is <code>public</code> to read and <code>public</code> to write.  This should be used instead of a <code>public</code> variable marked with the <code>[HideInInspector]</code> attribute.</p>
+<pre><code class="language-csharp">public int myProperty { get; set; } = 10;
+</code></pre>
+<hr />
+<p>Property that is <code>public</code> to read, but <code>private</code> to write.</p>
+<pre><code class="language-csharp">public int myProperty { get; private set; }
+</code></pre>
+<hr />
+<p>Property that is <code>public</code> to read, but <code>private</code> to write with the exception of the Inspector.</p>
+<p>Note the use of an underscore in the variable.  The property name should also match the name of the variable, excluding the underscore.</p>
+<p>Lambda expressions should be used for properties only one line of code long.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int _myNum = 10;
+public int myNum { get =&gt; _myNum; private set =&gt; _myNum = value; }
+</code></pre>
+<hr />
+<p>Property that is inherited from a <code>base</code> class, <code>public</code> to read and write.</p>
+<pre><code class="language-csharp">protected int myProperty { get; set; }
+</code></pre>
+<h2 id="getset"><code>get</code>/<code>set</code></h2>
+<p>The <code>get</code> and <code>set</code> of properties should be used when appropriate in order to check specific information, such as range limits for numbers, or other restraining conditions for a specific variable.  They can also be used to trigger specific events when a property is accessed or changed.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int _myNum = 10;
+public int myNum 
+{
+    get 
+    {
+        if(someCondition)
+        {
+            Debug.LogError(&quot;Cannot get this variable for some reason!&quot;);
+            return -1;
+        }
+        return _myNum;
+    }
+
+    set
+    {
+        if(value &lt; 0)
+        {
+            Debug.LogError(&quot;myNum cannot be set to a negative number!&quot;);
+        }
+        else if(value &gt; 10)
+        {
+            Debug.Log(&quot;myNum is greater than 10, which sets off some event of some sort!&quot;);
+            EventIfMyNumOverTen();
+            _myNum = value;
+        }
+        else
+        {
+            _myNum = value;
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="naming">Naming</h2>
+<p>Properties should be named in either camelCase or PascalCase, depending on their purpose.</p>
+<h3 id="camelcase">camelCase</h3>
+<p>If a property is a basic getter or setter with minimal logic, it should be camelCase.</p>
+<p>This is to signify that the property is nothing more than a getter/setter for a field, with no significant logic.</p>
+<h4 id="camelcase-example-1">camelCase Example 1</h4>
+<p>Basic getter property, no advanced logic.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int _num;
+public int num =&gt; _num;
+</code></pre>
+<h4 id="camelcase-example-2">camelCase Example 2</h4>
+<p>Basic getter/setter property, no advanced logic.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int _num;
+public int num { get =&gt; _num; private set =&gt; _num = value; }
+</code></pre>
+<h4 id="camelcase-example-3">camelCase Example 3</h4>
+<p>Basic getter/setter property, only simple checks.</p>
+<pre><code class="language-csharp">[SerializeField]
+private int _num;
+public int num 
+{ 
+    get =&gt; _num; 
+    private set
+    {
+        if(value != 0)
+        {
+            _num = value;
+        }
+    }
+}
+</code></pre>
+<h3 id="pascalcase">PascalCase</h3>
+<p>If a property performs some sort of meaningful calculation beyond the scope of the average getter or setter, it should be PascalCase.</p>
+<p>This is to signify that the property does meaningful work when used.</p>
+<h4 id="pascalcase-example-1">PascalCase Example 1</h4>
+<p>Getter property does meaningful work and creates a new string.</p>
+<pre><code class="language-csharp">[SerializeField]
+private string firstName;
+[SerializeField]
+private string lastName;
+
+public string FullName =&gt; $&quot;{firstName} {lastName}&quot;;
+</code></pre>
+<h4 id="pascalcase-example-2">PascalCase Example 2</h4>
+<p>Getter property does meaningful work and can create a different result each time depending on the current <code>.position</code> of <code>Transform t</code>.</p>
+<pre><code class="language-csharp">[SerializeField]
+private Transform t;
+[SerializeField]
+private Vector3 offset;
+
+public Vector3 TargetPos 
+{
+    get 
+    {
+        if(t)
+        {
+            return t.position + offset;
+        }
+        return Vector3.zero;
+    }
+};
+</code></pre>
+<h4 id="pascalcase-example-3">PascalCase Example 3</h4>
+<p>Property with simple getter, but with a setter doing meaningful work that may involve a method call and object state change.</p>
+<pre><code class="language-csharp">private int _num;
+
+public int Num 
+{
+    get =&gt; _num;
+    set 
+    {
+        if(value % 3 == 0)
+        {
+            SomeMethod();
+        }
+
+        _num = Mathf.Clamp(value, -100, 100);
+    }
+};
+</code></pre>
+               
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../fields-variables/" class="btn btn-neutral float-left" title="Fields/Variables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../methods/" class="btn btn-neutral float-right" title="Methods">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2020 - 2022 Pie On A Plate Productions LLC</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../fields-variables/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../methods/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

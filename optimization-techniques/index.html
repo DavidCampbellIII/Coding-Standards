@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Optimization Techniques - PPP Coding Standards</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Optimization Techniques";
+        var mkdocs_page_input_path = "optimization-techniques.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PPP Coding Standards
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fields-variables/">Fields/Variables</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../properties/">Properties</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../methods/">Methods</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../naming/">Naming Conventions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../namespaces/">Namespaces</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Optimization Techniques</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#caching-components">Caching Components</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#caching-objects">Caching Objects</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#avoid-find-methods">Avoid “Find” methods</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#avoid-transform">Avoid .transform</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comparetag-instead-of-tag">CompareTag() instead of .tag</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#material-instancing">Material Instancing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#material-editing">Material Editing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#coroutines">Coroutines</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#continuous-updates">Continuous Updates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#delayed-updates">Delayed Updates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-coroutines-over-update-or-fixedupdate">When to Use Coroutines over Update() or FixedUpdate()</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#layer-masking">Layer Masking</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../code-file-structure/">Code File Structure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../other/">Other</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PPP Coding Standards</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li><li>Optimization Techniques</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+<p style="text-align: right">
+  Last updated <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 21, 2022</span>
+</p>
+<hr />
+
+                <h1 id="optimization-techniques">Optimization Techniques</h1>
+<h2 id="caching-components">Caching Components</h2>
+<p>Caching components is one of the best things you can do in Unity to improve/maintain the performance of a game.  Caching a component is as simple as saving off a reference of that component during the <code>Start()</code> or <code>Awake()</code> method.</p>
+<p><em>Note that the <code>.transform</code> property of gameObjects should be cached as well, as it is a near equivalent of <code>GetComponent&lt;&gt;()</code>, which is slow.</em></p>
+<pre><code class="language-csharp">private Collider myCollider;
+
+private void Start()
+{
+    myCollider = GetComponent&lt;Collider&gt;();
+}
+</code></pre>
+<hr />
+<h2 id="caching-objects">Caching Objects</h2>
+<p>Just like components, objects can also be cached during <code>Start()</code> or <code>Awake()</code> to save on the overhead of instance creation.  A good example of this is <code>WaitForSeconds</code> used repeatedly in a coroutine.</p>
+<pre><code class="language-csharp">[SerializeField]
+private float waitTime = 5f;
+
+private WaitForSeconds waitForWaitTime;
+
+private void Start()
+{
+    waitForWaitTime = new WaitForSeconds(waitTime);
+}
+</code></pre>
+<hr />
+<h2 id="avoid-find-methods">Avoid “Find” methods</h2>
+<p>Unless there is a very good reason to do so, avoid using any form of “Find” method at all costs.  These are incredibly slow, and should only ever be used in a <code>Start()</code> or <code>Awake()</code> method (or some other method that only gets called once).</p>
+<p>Examples of “Find” methods include <code>GameObject.Find()</code>, <code>GameObject.FindObjectsWithTag()</code>, <code>GameObject.FindObjectWithTag()</code> etc.</p>
+<hr />
+<h2 id="avoid-transform">Avoid <code>.transform</code></h2>
+<p>Instead of using <code>.transform</code> to get an object’s transform constantly, use it once to cache.  Typically, a variable called <code>thisTransform</code> can be used to achieve this.</p>
+<pre><code class="language-csharp">private Transform thisTransform;
+
+private void Start()
+{
+    //or just ‘transform’ instead of ‘this.transform’, works the same way
+    thisTransform = this.transform;
+}
+</code></pre>
+<hr />
+<h2 id="comparetag-instead-of-tag"><code>CompareTag()</code> instead of <code>.tag</code></h2>
+<p>When a tag check is needed, use <code>CompareTag()</code> instead of checking tag equality with an object’s <code>.tag</code> property.  It is far faster, especially when used frequently.  As we will see below in the <a href="#layer-masking">Layer Masking</a> section of this document, it is even faster to avoid tag checks altogether where possible.</p>
+<pre><code class="language-csharp">private void OnTriggerEnter(Collider other)
+{
+    if(other.CompareTag(&quot;Player&quot;))
+    {
+        //do something
+    }
+}
+</code></pre>
+<hr />
+<h2 id="material-instancing">Material Instancing</h2>
+<p>All materials should be instanced whenever possible in order to speed up the rendering process.  This can be done by checking the “Enable GPU Instancing” box near the bottom of all materials using the Standard shader (as well as a lot of other custom shaders).</p>
+<hr />
+<h2 id="material-editing">Material Editing</h2>
+<p>When editing a material, it is best to edit a material overall instead of that specific instance of the material.</p>
+<p>Let’s say we want to make a color change on a material.  One might be tempted to access the material like so:</p>
+<pre><code class="language-csharp">Renderer rend;
+Material matToEdit = rend.material;
+</code></pre>
+<p>Avoid doing this whenever possible.  This will create a duplicate instance copy of the material.  Poor material management is one of the top bottlenecks for performance in game (as it is a great factor in the number of batches that are made when the game renders each frame).</p>
+<p>If a material needs to be adjusted, consider using the <code>sharedMaterial</code> property instead.</p>
+<pre><code class="language-csharp">Renderer rend;
+Material matToEdit = rend.sharedMaterial;
+</code></pre>
+<p>This will grab the material from the renderer without creating a duplicate instance of it.  This, however, has the downside of affecting all other objects that use this material.</p>
+<p>If we want to change a property of a material on one specific object that uses a material that many other objects share, without modifying the look of the other objects sharing the material, it is recommended to simply create a new material and assign it to the object that must change.</p>
+<p>This is especially true if the object’s material will be changing frequently, like a glow pulsing, light flickering etc.  If an object with a frequently changing material has its own material, then <code>sharedMaterial</code> can be used to avoid the instantiation of a new material whenever it changes.</p>
+<hr />
+<h2 id="coroutines">Coroutines</h2>
+<p>Coroutines are not only a way to script a series of events over a period of time, but can also be a powerful alternative to methods that execute far more frequently than is needed, and with far more overhead, such as <code>Update()</code>.</p>
+<h3 id="continuous-updates">Continuous Updates</h3>
+<p>When a function needs to update on a frame-by-frame basis, but only for a set period of time (as opposed to constantly), one can use <code>WaitForEndOfFrame</code> within a coroutine, and only start the coroutine when needed.</p>
+<pre><code class="language-csharp">private IEnumerator WaitForSomething()
+{
+    while(enabled)
+    {
+        yield return new WaitForEndOfFrame(); //better to cache this object in Start()
+        //do something
+    }
+}
+</code></pre>
+<p><strong>IMPORTANT</strong>: <em><code>WaitForEndOfFrame</code> should only be used for graphical specific functions that require operations to be performed at the very end of a frame.<br/>If your function does not require this (most don't), <code>yield return null</code> is the appropriate alternative.</em></p>
+<h3 id="delayed-updates">Delayed Updates</h3>
+<p>When a function needs to update frequently, but not necessarily exactly every frame, waiting for a short time period within a loop inside a coroutine is a more efficient alternative to the <code>Update()</code> method.</p>
+<pre><code class="language-csharp">private IEnumerator WaitForSomethingElse()
+{
+    while(enabled)
+    {
+        //0.05 equates to 20 times a second, a fairly efficient alternative to most things that
+        //  need to be constantly updated
+        yield return new WaitForSeconds(0.05f);
+        //do something
+    }
+}
+</code></pre>
+<p><code>WaitForFixedUpdate</code> can also be used for physics based operations, an efficient alternative to <code>FixedUpdate()</code>.</p>
+<p>Please note that each of the above coroutine examples incorporate the use of a loop instead of recursion.  This is because C# does not support proper tail culling in recursive statements.  This means that a long running recursive function will continue to allocate stack frames, which could have the potential for issues if it runs long enough.  </p>
+<p>Using a loop that is based on if the object is enabled or not is a good fix that achieves effectively the same thing as the infinitely recursive approach.</p>
+<h3 id="when-to-use-coroutines-over-update-or-fixedupdate">When to Use Coroutines over <code>Update()</code> or <code>FixedUpdate()</code></h3>
+<p>If deciding between using a coroutine that waits for the end of the frame (or waits <code>null</code>) and the standard <code>Update()</code> method, the best option depends on the amount of control you desire over your updating.</p>
+<p>For example, if you require the ability to stop one part of a script from updating, but not other parts, then coroutines are your best bet, as there can be multiple coroutines associated with a single <code>MonoBehavior</code> that can be started and stopped independently from one another.</p>
+<p>However, if your script simply requires a single constant update loop, then <code>Update()</code> is preferred due to less overhead per method call.  In fact, <code>Update()</code> should always be preferred over an infinite, slightly delayed coroutine due to the overhead associated with coroutine execution.  </p>
+<p>Waiting about 20 times a second using a coroutine as opposed to 60 times a second using <code>Update()</code> may not increase performance if the overhead of the coroutine calls exceed whatever performance is gained by running the code in the update fewer times.  In summary, only use coroutines for performance purposes if the code being executed each time is very expensive.</p>
+<hr />
+<h2 id="layer-masking">Layer Masking</h2>
+<p>When making use of trigger-related methods such as <code>OnTriggerEnter()</code> or <code>OnTriggerStay()</code> etc., consider if an opportunity to utilize layer masking becomes available.</p>
+<p>Layer masking allows for physics-based operations to ignore certain predefined layers, which can help to speed up any mechanic that is reliant on these physics-based operations, especially if they are utilized frequently or in great quantities.  By only including some layers into physics calculations (such as triggers or raycasts), tag checks (or checking if needed components are on the colliding object) are avoided, speeding things up considerably.</p>
+<p>Let’s say we have 2 layers: <code>Player</code> and <code>PlayerOnly</code>.  <code>PlayerOnly</code>, as the name suggests, only collides with objects on the <code>Player</code> layer.  When the script below is attached to an object with a trigger and the layer of <code>PlayerOnly</code>, no tag check is needed, because we know with certainty that it will only ever collide with the <code>Player</code>.</p>
+<pre><code class="language-csharp">private void OnTriggerEnter(Collider other)
+{
+    //because this script was placed on an object with layer PlayerOnly, 
+    //no tag check is needed, and we don't need to worry about PlayerHealth not existing 
+    //on the colliding object
+    other.GetComponent&lt;PlayerHealth&gt;().DoSomething();
+}
+</code></pre>
+<p>The downside to using layer masking instead of tag/component checking is that it is typically harder to debug, especially when many different interacting layers are involved.  It is essential to carefully track each layer and plan how it may/may not interact with another to maximize the usefulness of this technique.</p>
+               
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../namespaces/" class="btn btn-neutral float-left" title="Namespaces"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../code-file-structure/" class="btn btn-neutral float-right" title="Code File Structure">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2020 - 2022 Pie On A Plate Productions LLC</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../namespaces/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../code-file-structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
