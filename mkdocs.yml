@@ -5,4 +5,5 @@ nav:
   - Properties: properties.md
   - Methods: methods.md
   - Naming Conventions: naming.md
+  - Namespaces: namespaces.md
 theme: readthedocs
