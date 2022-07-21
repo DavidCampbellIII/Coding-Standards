@@ -8,7 +8,7 @@ All fields should remain as `private` as possible.  If inheritance is involved, 
 
 If a field must be exposed in the Inspector for easy editing access, it should be serialized.
 
-```c#
+```csharp
 [SerializeField]
 private int myIntField = 10;
 ```
