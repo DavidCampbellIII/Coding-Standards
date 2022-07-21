@@ -6,4 +6,5 @@ nav:
   - Methods: methods.md
   - Naming Conventions: naming.md
   - Namespaces: namespaces.md
+  - Optimization Techniques: optimization-techniques.md
 theme: readthedocs
