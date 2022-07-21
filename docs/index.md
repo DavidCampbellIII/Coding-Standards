@@ -1,17 +1,17 @@
-# Welcome to MkDocs
+# Pie On A Plate Productions Coding Standards
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## About
 
-## Commands
+This documentation covers the basics of the Coding Standards followed by Pie On A Plate Productions.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Here are the highlights:
 
-## Project layout
+- [Example Code File Structure](code-file-structure.md)
+- [Naming Conventions](naming.md)
+- [Optimization Techniques and Best Practices](optimization-techniques.md)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+
+## Credits
+
+These coding standards have been created and are maintained by David Campbell III.
