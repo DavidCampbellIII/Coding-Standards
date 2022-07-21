@@ -82,6 +82,118 @@ public int myNum
 }
 ```
 
+---
+
 ## Naming
 
-Properties should be named in camelCase.
+Properties should be named in either camelCase or PascalCase, depending on their purpose.
+
+### camelCase
+
+If a property is a basic getter or setter with minimal logic, it should be camelCase.
+
+This is to signify that the property is nothing more than a getter/setter for a field, with no significant logic.
+
+#### camelCase Example 1
+
+Basic getter property, no advanced logic.
+
+```csharp
+[SerializeField]
+private int _num;
+public int num => _num;
+```
+
+#### camelCase Example 2
+
+Basic getter/setter property, no advanced logic.
+
+```csharp
+[SerializeField]
+private int _num;
+public int num { get => _num; private set => _num = value; }
+```
+
+#### camelCase Example 3
+
+Basic getter/setter property, only simple checks.
+
+```csharp
+[SerializeField]
+private int _num;
+public int num 
+{ 
+    get => _num; 
+    private set
+    {
+        if(value != 0)
+        {
+            _num = value;
+        }
+    }
+}
+```
+
+### PascalCase
+
+If a property performs some sort of meaningful calculation beyond the scope of the average getter or setter, it should be PascalCase.
+
+This is to signify that the property does meaningful work when used.
+
+#### PascalCase Example 1
+
+Getter property does meaningful work and creates a new string.
+
+```csharp
+[SerializeField]
+private string firstName;
+[SerializeField]
+private string lastName;
+
+public string FullName => $"{firstName} {lastName}";
+```
+
+#### PascalCase Example 2
+
+Getter property does meaningful work and can create a different result each time depending on the current `.position` of `Transform t`.
+
+```csharp
+[SerializeField]
+private Transform t;
+[SerializeField]
+private Vector3 offset;
+
+public Vector3 TargetPos 
+{
+    get 
+    {
+        if(t)
+        {
+            return t.position + offset;
+        }
+        return Vector3.zero;
+    }
+};
+```
+
+#### PascalCase Example 3
+
+Property with simple getter, but with a setter doing meaningful work that may involve a method call and object state change.
+
+```csharp
+private int _num;
+
+public int Num 
+{
+    get => _num;
+    set 
+    {
+        if(value % 3 == 0)
+        {
+            SomeMethod();
+        }
+
+        _num = Mathf.Clamp(value, -100, 100);
+    }
+};
+```
