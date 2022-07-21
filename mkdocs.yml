@@ -1,4 +1,5 @@
 site_name: PPP Coding Standards
+copyright: Copyright © 2020 - 2022 Pie On A Plate Productions LLC
 nav:
   - About: index.md
   - Fields/Variables: fields-variables.md
@@ -9,4 +10,9 @@ nav:
   - Optimization Techniques: optimization-techniques.md
   - Code File Structure: code-file-structure.md
   - Other: other.md
-theme: readthedocs
+theme: 
+  name: readthedocs
+  custom_dir: overrides
+plugins:
+- search
+- git-revision-date-localized
