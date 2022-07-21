@@ -4,4 +4,5 @@ nav:
   - Fields/Variables: fields-variables.md
   - Properties: properties.md
   - Methods: methods.md
+  - Naming Conventions: naming.md
 theme: readthedocs
