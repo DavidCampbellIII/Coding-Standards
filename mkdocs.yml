@@ -3,4 +3,5 @@ nav:
   - About: index.md
   - Fields/Variables: fields-variables.md
   - Properties: properties.md
+  - Methods: methods.md
 theme: readthedocs
